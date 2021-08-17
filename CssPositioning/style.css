@@ -1,0 +1,133 @@
+.block{
+padding:16x;
+width: 100px;
+height: 100px;
+}
+/*static - по умолчанию, не убирает из нормального потока*/
+.static{
+    position: static;
+    background-color: chartreuse;
+    color:blue;
+}
+/* relative - не убирает из нормального потока,
+его верхняя граница(левый верхний угол) служит 
+точкой отсчета для дочерних элементов с position absolute,
+смещение происходит относительно его координат в нормальном потоке*/
+.relative{
+ position:relative;
+ top: 100px;
+ left: 100px;
+ right: 100px;
+    bottom:20px;
+    background:tomato;
+    z-index: 8600;
+}
+/* fixed- убирает из нормального потока,
+координаты смещения задаются относительно окна просмотра(окна браузера)*/
+.fixed{
+    position:fixed;
+    right: 20px;
+    bottom:20px;
+    background-color: blue;
+}
+body{
+    height: 2000px;
+}
+/* absolute - убирает из нормального потока,
+координаты смещения задаются относительно документа
+(верхнего левого угла тега body)*/
+.absolute{
+    position: absolute;
+    top: 120px;
+    right: 200px;
+    background:gold;
+}
+.sticky {
+    position: sticky;
+    background:indigo;
+    top: 260px;
+    left:200px;
+    z-index: 8500;
+}
+.card{
+    padding:20px;
+    border: 1px solid yellow;
+    width:320px;
+    height:320px;
+    position:relative;
+}
+.card > .close-btn{
+    border-radius:50%;
+    border:1px solid red;
+    cursor:pointer;
+    padding: 10px;
+    position:absolute;
+    right:16px;
+    top:5px;
+}
+
+span{
+    display:block;
+}
+
+/*
+display:
+block - блочный элемент 
+inline-block - строчный элемент
+none - элемент не отображается
+...
+
+flex - флекс контейнер
+grid- сетка
+*/
+.container{
+ display:flex;
+ flex-direction:column;
+ flex-direction: column-reverse;
+ flex-direction: row;
+ flex-direction: row-reverse; /*направление главной оси*/
+
+ justify-content: center;
+ justify-content: space-around;
+ justify-content: space-between;
+
+
+
+}
+.container>div{
+    width:100px;
+    height:100px;
+    background:blueviolet;
+    margin:10px; /* внешний отступ от блока*/
+}
+
+.two{
+    flex: 2 5;
+}
+.one{
+    flex:1 2;
+}
+.three{
+    flex:3 4;
+}
+.template{
+    display:grid;
+    width:400px;
+    height:400px;
+    grid-template-areas:
+    "header header"
+    "menu content";
+    grid-template-columns:1fr 6fr;
+    grid-template-rows: 1fr 3fr;
+    gap: 20px 3px;
+}
+.template>div{
+    background-color: brown;
+}
+.header{
+    grid-area: header;
+}
+.menu{
+    grid-area: content;
+}
+
