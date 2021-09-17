@@ -4,5 +4,47 @@
 <!-- [(атрибут)] - в двух направлениях-->
 <button [id] ="myid" (click) ="showMessage(name.value)">OK</button>
 
+<input [(ngModel)]="lastname"/>
+
+<div [ngStyle]="styles" (click)="changeStyle()">Angular</div>
+
+<div [ngClass]="classes" (mouseenter)="changeClasses(true)" (mouseleave)="changeClasses(false)">EBAAT</div> 
+
+<div *ngIf="lastname === 'Artsem'; else adv"><p>McDonalds</p></div>
+
+<ng-template #adv>
+    <p>BurgerKing</p>
+</ng-template>
 
 
+<div [ngSwitch]="human">
+    <ng-template [ngSwitchCase]="'man'">
+        <img src ="https://image.freepik.com/free-photo/sexy-woman-in-swimsuit-with-the-usa-flag-color_39704-354.jpg" />
+    </ng-template>
+
+    <ng-template [ngSwitchCase]="'woman'">
+        <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeyVMneYwL3Q5MrKxMdZNGExgJatEb0OF6Gg&usqp=CAU"/>
+    </ng-template>
+
+    <ng-template [ngSwitchCase] = "'child'">
+        <img src ="https://balala.com.ua/blog/wp-content/uploads/2018/05/DSC2174pp_w1136_h757.jpg" />
+    </ng-template>
+</div>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let user of users">
+    
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.sex}}</td>
+        </tr>
+    </tbody>
+</table>
